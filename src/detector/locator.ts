@@ -89,7 +89,7 @@ function countLine(matrix: BitMatrix, startX: number, startY: number, directionX
   let y = startY;
   let count = 0;
   while (true) {
-    const v = matrix.safeGet(x, y);
+    const v = matrix.get(x, y); // TODO - use safeGet
     if (v === currentColor) {
       count++;
     } else {
@@ -190,7 +190,7 @@ export function locate(matrix: BitMatrix): any {
     let scans = [0, 0, 0, 0, 0];
 
     for (let x = -1; x <= matrix.width; x++) {
-      const v = matrix.safeGet(x, y);
+      const v = matrix.get(x, y);  // TODO - use safeGet
       if (v === lastBit) {
         count++;
       } else {
